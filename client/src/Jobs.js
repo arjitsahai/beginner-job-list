@@ -10,14 +10,14 @@ export default function Jobs({ jobs }) {
         Typography variant = "h1" >
         Beginner Jobs <
         /Typography> {
-            jobs.map(
-                job => < Job job = { job }
-                />
-            )
-        }
+        jobs.map(
+            job => < Job job = { job }
+            />
+        )
+    }
 
-        <
-        /div>
+    <
+    /div>
 
-    )
+)
 }
