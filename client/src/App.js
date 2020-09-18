@@ -3,7 +3,9 @@ import './App.css';
 import Jobs from './Jobs';
 
 const mockJobs = [
-    { title: 'SE 1', company: 'Microsoft' }
+    { title: 'SE 1', company: 'Microsoft' },
+    { title: 'SE 2', company: 'Google' },
+    { title: 'SE 3', company: 'Facebook' }
 ]
 
 function App() {
