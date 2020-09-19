@@ -9,6 +9,8 @@ const setAsync = promisify(client.get).bind(client);
 
 const baseURL = 'https://jobs.github.com/positions.json';
 
+
+//fetch all jobs
 async function fetchGithub() {
     let resultCount = 1,
         onPage = 0;
@@ -23,9 +25,26 @@ async function fetchGithub() {
         onPage++;
     }
 
-    console.log('got', allJobs.length, 'jobs total');
 
-    const success = await setAsync('github', allJobs);
+    //filter jobs
+    const beginnerJobs = allJobs.filter(job => {
+        const jobTitle = job.title.toLowerCase();
+        if (
+            jobTitle.includes('senior') ||
+            jobTitle.includes('sr') ||
+            jobTitle.includes('manager')
+        ) {
+            return false;
+        }
+        return true;
+    })
+
+    console.log(beginnerJobs.length);
+
+
+    //set in redis
+
+    const success = await setAsync('github', JSON.stringify(beginnerJobs));
 
     console.log({ success });
 }
