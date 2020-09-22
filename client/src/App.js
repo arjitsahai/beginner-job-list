@@ -12,18 +12,22 @@ const mockJobs = [
 ]
 
 
-async function fetchjobs() {
+async function fetchjobs(updateCb) {
     const res = await fetch(JOB_API_URL);
     const beginnerJobs = await res.json();
-
+    updateCb(beginnerJobs);
 
     console.log({ beginnerJobs });
 }
 
 function App() {
 
+    const [jobList, updateJobs] = React.useState([]);
+
+
+
     React.useEffect(() => {
-        fetchjobs();
+        fetchjobs(updateJobs);
     })
 
 
@@ -31,7 +35,7 @@ function App() {
     return ( <
         div className = "App" >
         <
-        Jobs jobs = { mockJobs }
+        Jobs jobs = { jobList }
         / >
 
         <

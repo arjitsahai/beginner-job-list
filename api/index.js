@@ -12,7 +12,6 @@ app.get('/jobs', async(req, res) => {
     const jobs = await getAsync('github');
 
 
-
     return res.send(jobs);
 })
 
