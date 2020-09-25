@@ -20,12 +20,10 @@ function App() {
         fetchJobs(updateJobs);
     }, [])
 
-    return ( <
-        div className = "App" >
-        <
-        Jobs jobs = { jobList }
-        /> <
-        /div>
+    return ( 
+        <div className = "App" >
+        <Jobs jobs = { jobList }/> 
+        </div>
     );
 }
 
