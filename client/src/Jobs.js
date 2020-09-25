@@ -56,22 +56,14 @@ export default function Jobs({ jobs }) {
         scrollToTop();
     }
 
-    return ( <
-        div className = "jobs" >
-        <
-        JobModal open = { open }
-        job = { selectedJob }
-        handleClose = { handleClose }
-        /> <
-        Typography variant = "h4"
-        component = "h1" >
-        Entry Level Software Jobs <
-        /Typography> <
-        Typography variant = "h6"
-        component = "h2" >
+    return ( 
+        <div className = "jobs" >
+        <JobModal open = { open } job = { selectedJob }  handleClose = { handleClose }/> 
+        <Typography variant = "h4" component = "h1" >
+        Beginner Software Developer Jobs </Typography> 
+        <Typography variant = "h6" component = "h2" >
         Found { numJobs }
-        Jobs <
-        /Typography> {
+        Jobs </Typography> {
             jobsOnPage.map(
                 (job, i) => < Job key = { i }
                 job = { job }
@@ -81,39 +73,26 @@ export default function Jobs({ jobs }) {
                         handleClickOpen();
                         selectJob(job)
                     }
-                }
-                />
+                }/>
             )
-        } <
-        div >
+        } 
+            <div >
         Page { activeStep + 1 }
-        of { numPages } <
-        /div> <
-        MobileStepper variant = "progress"
-        steps = { numPages }
-        position = "static"
-        activeStep = { activeStep }
-        nextButton = { <
-            Button size = "small"
-            onClick = { handleNext }
-            disabled = { activeStep === numPages - 1 } >
-            Next <
-            KeyboardArrowRight / >
-            <
-            /Button>
+        of { numPages } 
+        </div> 
+        <MobileStepper variant = "progress" steps = { numPages } position = "static" activeStep = { activeStep } nextButton = { 
+            <Button size = "small" onClick = { handleNext } disabled = { activeStep === numPages - 1 } >
+            Next 
+            <KeyboardArrowRight / >
+            </Button>
         }
-        backButton = { <
-            Button size = "small"
-            onClick = { handleBack }
-            disabled = { activeStep === 0 } >
-            <
-            KeyboardArrowLeft / >
-            Back <
-            /Button>
-        }
-        />
+        backButton = { 
+            <Button size = "small" onClick = { handleBack } disabled = { activeStep === 0 } >
+            <KeyboardArrowLeft / >
+            Back 
+            </Button>
+        } />
 
-        <
-        /div>
+        </div>
     )
 }
