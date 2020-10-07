@@ -22,7 +22,7 @@ function App() {
 
     return ( 
         <div className = "App" >
-        <Jobs jobs = { jobList }/> 
+        <Jobs jobs = { jobList } /> 
         </div>
     );
 }
