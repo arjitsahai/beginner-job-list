@@ -9,7 +9,6 @@ const setAsync = promisify(client.get).bind(client);
 const baseURL = 'https://jobs.github.com/positions.json';
 
 
-//fetch all jobs
 async function fetchGithub() {
     let resultCount = 1,
         onPage = 0;
@@ -25,7 +24,6 @@ async function fetchGithub() {
     }
 
 
-    //filter jobs
     const beginnerJobs = allJobs.filter(job => {
         const jobTitle = job.title.toLowerCase();
         if (
@@ -40,8 +38,6 @@ async function fetchGithub() {
 
     console.log(beginnerJobs.length);
 
-
-    //set in redis
 
     const success = await setAsync('github', JSON.stringify(beginnerJobs));
 

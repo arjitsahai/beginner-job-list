@@ -18,7 +18,6 @@ export default function Jobs({ jobs }) {
         })
     }, []);
 
-    // modal
     const [open, setOpen] = React.useState(false);
     const [selectedJob, selectJob] = React.useState({});
 
@@ -29,14 +28,10 @@ export default function Jobs({ jobs }) {
     function handleClose() {
         setOpen(false);
     }
-    // pagination
     const numJobs = jobs.length;
     const numPages = Math.ceil(numJobs / 50);
     const [activeStep, setActiveStep] = React.useState(0);
     const jobsOnPage = jobs.slice(activeStep * 50, (activeStep * 50) + 50);
-
-    // step == 0, show 0-49
-    // step == 1, show 50 - 99
 
     function scrollToTop() {
         const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -73,7 +68,7 @@ export default function Jobs({ jobs }) {
                         handleClickOpen();
                         selectJob(job)
                     }
-                }/>
+                } />
             )
         } 
             <div >
@@ -83,12 +78,12 @@ export default function Jobs({ jobs }) {
         <MobileStepper variant = "progress" steps = { numPages } position = "static" activeStep = { activeStep } nextButton = { 
             <Button size = "small" onClick = { handleNext } disabled = { activeStep === numPages - 1 } >
             Next 
-            <KeyboardArrowRight / >
+            <KeyboardArrowRight />
             </Button>
         }
         backButton = { 
             <Button size = "small" onClick = { handleBack } disabled = { activeStep === 0 } >
-            <KeyboardArrowLeft / >
+            <KeyboardArrowLeft />
             Back 
             </Button>
         } />

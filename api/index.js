@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 3001
+const express = require('express');
+const app = express();
+const port = 3001;
 
-var redis = require("redis"),
+var redis = require("redis");
     client = redis.createClient();
 
 const { promisify } = require('util');

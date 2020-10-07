@@ -2,10 +2,8 @@ import React from 'react'
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
 
-// todo factor these into constants file
 const ONE_DAY_MS = 24 * 3600 * 1000;
 
-// returns a date like Fri Jun 14
 function getMDY(ts) {
     return ts.toDateString().split(' ').slice(0, 3).join(' ')
 }
@@ -31,13 +29,13 @@ export default function Job({ job, onClick }) {
         <Paper onClick = { onClick } className = 'job' >
         <div className = "flex-align-mid" >
         <div className = "job-title-location" >
-        <Typography variant = 'h6' > { job.title } < /Typography> 
-        <Typography variant = 'h5' > { job.company } < /Typography> 
-        <Typography > { job.location } < /Typography> 
+        <Typography variant = 'h6'> { job.title } </Typography> 
+        <Typography variant = 'h5'> { job.company } </Typography> 
+        <Typography> { job.location } </Typography> 
         </div> 
         </div> 
         <div className = "flex-align-mid" >
-        <Typography > { makeDate(job.created_at) } < /Typography> 
+        <Typography> { makeDate(job.created_at) } </Typography> 
         </div> 
         </Paper>
     )

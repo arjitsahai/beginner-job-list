@@ -21,48 +21,33 @@ export default function JobModal({ job, open, handleClose }) {
         return <div / >
     }
 
-    return ( <
-        div >
-        <
-        Dialog open = { open }
+    return ( 
+        <div>
+        <Dialog open = { open }
         TransitionComponent = { Transition }
         keepMounted onClose = { handleClose }
         arialabelledby = "alert-dialog-slide-title"
-        ariadescribedby = "alert-dialog-slide-description" >
-        <
-        DialogTitle id = "alert-dialog-slide-title" > { job.title } - { job.company } <
-        img className = { 'detail-logo' }
-        src = { job.company_logo }
-        /> <
-        /DialogTitle> <
-        DialogContent >
-        <
-        DialogContentText id = "alert-dialog-slide-description" >
-        <
-        Chip size = "small"
-        label = { `from ${job.source}` }
-        /> <
-        /DialogContentText> <
-        DialogContentText id = "alert-dialog-slide-description"
-        dangerouslySetInnerHTML = {
-            { __html: job.description } }
-        /> <
-        /DialogContent> <
-        DialogActions >
-        <
-        Button onClick = { handleClose }
-        color = "primary" >
-        Close <
-        /Button> <
-        a href = { job.url }
-        target = "_blank" >
-        <
-        Button color = "primary" >
-        Apply <
-        /Button> <
-        /a> <
-        /DialogActions> <
-        /Dialog> <
-        /div>
+        ariadescribedby = "alert-dialog-slide-description">
+        <DialogTitle id = "alert-dialog-slide-title"> { job.title } - { job.company } 
+        <img className = { 'detail-logo' } alt="detail" src = { job.company_logo } /> 
+        </DialogTitle> 
+        <DialogContent >
+        <DialogContentText id = "alert-dialog-slide-description" >
+        <Chip size = "small"
+        label = { `from ${job.source}` } /> 
+        </DialogContentText> 
+        <DialogContentText id = "alert-dialog-slide-description"
+        dangerouslySetInnerHTML = { { __html: job.description } } /> 
+        </DialogContent> 
+        <DialogActions>
+        <Button onClick = { handleClose } color = "primary">
+        Close 
+        </Button> 
+        <a href = { job.url } target = "_blank" rel="noopener noreferrer">
+        <Button color = "primary">Apply</Button> 
+        </a> 
+        </DialogActions> 
+        </Dialog> 
+        </div>
     );
 }
